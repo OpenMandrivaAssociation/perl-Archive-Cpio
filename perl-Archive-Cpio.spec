@@ -1,7 +1,7 @@
 %define module	Archive-Cpio
 %define name	perl-%{module}
 %define version	0.07
-%define release	%mkrel 2
+%define release	%mkrel 3
 
 Name:		%{name}
 Version:	%{version}
@@ -10,6 +10,7 @@ Summary:	Manipulations of cpio archives
 License:	GPL or Artistic
 Group:		Development/Perl
 Source:		http://search.cpan.org/CPAN/authors/id/P/PI/PIXEL/%{module}-%{version}.tar.gz
+Patch0:		Archive-Cpio-0.07-doc.patch
 Url:		http://search.cpan.org/dist/%{module}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Buildrequires:	perl-devel
@@ -24,6 +25,7 @@ the fly
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p1 -b .doc
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
