@@ -1,21 +1,19 @@
-%define module	Archive-Cpio
-%define name	perl-%{module}
-%define version	0.07
-%define release	%mkrel 4
+%define upstream_name	 Archive-Cpio
+%define upstream_version 0.07
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	%mkrel 1
+
 Summary:	Manipulations of cpio archives
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source:		http://search.cpan.org/CPAN/authors/id/P/PI/PIXEL/%{module}-%{version}.tar.gz
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://search.cpan.org/CPAN/authors/id/P/PI/PIXEL/%{upstream_name}-%{upstream_version}.tar.gz
 Patch0:		Archive-Cpio-0.07-doc.patch
-Url:		http://search.cpan.org/dist/%{module}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Buildrequires:	perl-devel
 
 Buildarch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Archive::Cpio provides a few functions to read and write cpio files.
@@ -24,7 +22,7 @@ cpio-filter is a script using Archive::Cpio that transforms a cpio archive on
 the fly
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 %patch0 -p1 -b .doc
 
 %build
@@ -47,5 +45,3 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/Archive/Cpio*
 %{_bindir}/*
 %{_mandir}/*/*
-
-
