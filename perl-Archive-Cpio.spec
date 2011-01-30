@@ -1,5 +1,5 @@
 %define upstream_name	 Archive-Cpio
-%define upstream_version 0.07
+%define upstream_version 0.08
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
@@ -10,8 +10,6 @@ License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	http://search.cpan.org/CPAN/authors/id/P/PI/PIXEL/%{upstream_name}-%{upstream_version}.tar.gz
-Patch0:		Archive-Cpio-0.07-doc.patch
-
 Buildarch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
@@ -23,7 +21,6 @@ the fly
 
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
-%patch0 -p1 -b .doc
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -33,11 +30,11 @@ make
 make test
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %{makeinstall_std}
 
 %clean 
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files 
 %defattr(-,root,root)
