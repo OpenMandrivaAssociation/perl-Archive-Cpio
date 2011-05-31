@@ -1,9 +1,9 @@
 %define upstream_name	 Archive-Cpio
-%define upstream_version 0.08
+%define upstream_version 0.09
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	%mkrel 2
+Release:	%mkrel 1
 
 Summary:	Manipulations of cpio archives
 License:	GPL+ or Artistic
