@@ -10,6 +10,7 @@ Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	http://search.cpan.org/CPAN/authors/id/P/PI/PIXEL/%{upstream_name}-%{upstream_version}.tar.gz
 BuildArch:	noarch
+BuildRequires:	perl(Test)
 BuildRequires:	perl-devel
 BuildRequires:	perl-JSON-PP
 
