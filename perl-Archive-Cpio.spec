@@ -1,14 +1,14 @@
 %define upstream_name	 Archive-Cpio
-%define upstream_version 0.09
+%define upstream_version 0.10
 
 Summary:	Manipulations of cpio archives
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	17
+Version:	%{upstream_version}
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://search.cpan.org/CPAN/authors/id/P/PI/PIXEL/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/Archive-Cpio
+Source0:	https://cpan.metacpan.org/authors/id/P/PI/PIXEL/Archive-Cpio-%{upstream_version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	make
 BuildRequires:	perl(Test)
